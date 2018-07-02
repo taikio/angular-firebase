@@ -10,8 +10,6 @@
         function mainController($scope, $firebaseArray) {
             var vm = this;
 
-            //var ref = new Firebase('https://elegantnotes-1cb67.firebaseio.com');
-
             var ref = firebase.database().ref().child("notes");
             // download the data into a local object
             vm.firebasedatabase = $firebaseArray(ref);
@@ -22,10 +20,18 @@
             vm.pessoa = {};
 
             vm.salvar = function (nome, sobrenome){
-                vm.firebasedatabase.$save({
+                vm.firebasedatabase.$add({
                     nome: nome,
                     sobrenome: sobrenome
-                });                
+                });    
+                
+                vm.firebasedatabase.$save()
+                    .then(function(data){
+
+                    },
+                    function(err){
+
+                    });
             }
         }
 })();
