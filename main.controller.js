@@ -33,5 +33,21 @@
 
                     });
             }
+
+            vm.editar = function (element){
+                var record = vm.firebasedatabase.$getRecord(element.$id);
+
+                record.nome = element.nome;
+                record.sobrenome = element.sobrenome;
+
+                vm.firebasedatabase.$save(record)
+                    .then(function (){
+
+                    },
+                    function (){
+
+                    });
+            }
+            
         }
 })();
