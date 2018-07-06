@@ -15,6 +15,25 @@
     <br>
     <button ng-click="vm.salvar(vm.nome, vm.sobrenome)">Salvar</button>
 
+    <br><br><br>
+
+    <div>
+        <ul>
+            <li ng-repeat="item in vm.firebasedatabase">
+                {{item.nome}} - {{item.sobrenome}} - <button ng-click="vm.editar(item)">Editar</button>
+            </li>
+        </ul>
+    </div>
+    <br><br>
+
+    <div>
+        <input type="text" ng-model="vm.tempPessoa.nome">
+        <br>
+        <input type="text" ng-model="vm.tempPessoa.sobrenome">
+        <br>
+        <button ng-click="vm.salvarEditado(vm.tempPessoa)">Salvar</button>
+    </div>
+
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>

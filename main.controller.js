@@ -34,13 +34,16 @@
                     });
             }
 
+            vm.tempPessoa = {}
             vm.editar = function (element){
                 var record = vm.firebasedatabase.$getRecord(element.$id);
 
-                record.nome = element.nome;
-                record.sobrenome = element.sobrenome;
+                vm.tempPessoa = record;
+                
+            }
 
-                vm.firebasedatabase.$save(record)
+            vm.salvarEditado = function (element){
+                vm.firebasedatabase.$save(element)
                     .then(function (){
 
                     },
