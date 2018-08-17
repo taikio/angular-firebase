@@ -51,6 +51,10 @@
 
                     });
             }
+
+            vm.excluir = function (element){
+                vm.firebasedatabase.$remove(element);
+            }
             
         }
 })();
